@@ -1,0 +1,27 @@
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="<%%= <%=plural_table_name%>_path%>"> <%%= <%= singular_table_name.camelize%>.model_name.human(count: 2)%></a>
+    </li>
+    <li class="breadcrumb-item active"><%%= <%= singular_table_name.camelize%>.model_name.human%></li>
+  </ol>
+</div> 
+<div class="card card-register mx-auto my-2">
+  <div class="card-header"><%%= @<%=singular_table_name%>.to_s %></div>
+  <div class="card-body">
+    <%- attributes.each do |attribute| -%>
+      <p>
+        <strong><%%= <%= singular_table_name.camelize%>.human_attribute_name("<%= attribute.name %>").titleize%>:</strong>
+        <%%= @<%=singular_table_name%>.<%= attribute.name %> %>
+      </p>
+    <%- end -%>
+    <div class="actions">
+      <%%= link_to 'Volver', :back, class: "btn btn-primary" %>
+      <%%= link_to 'Editar <%=singular_table_name.titleize%>', edit_<%=singular_table_name%>_path(@<%=singular_table_name%>), class: 'btn btn-primary' %>
+      <%%= link_to 'Eliminar ' + <%=singular_table_name.camelize%>.model_name.human.titleize, @<%=singular_table_name%>, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }, class: "btn btn-danger"%>
+    </div>
+  </div>
+</div>

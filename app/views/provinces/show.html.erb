@@ -1,0 +1,53 @@
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="<%= provinces_path%>"> <%= Province.model_name.human(count: 2)%></a>
+    </li>
+    <li class="breadcrumb-item active"><%= Province.model_name.human%></li>
+  </ol>
+</div> 
+<div class="card card-register mx-auto my-2">
+  <div class="card-header"><%= @province.to_s %></div>
+  <div class="card-body">
+      <p>
+        <strong><%= Province.human_attribute_name("iso_id").titleize%>:</strong>
+        <%= @province.iso_id %>
+      </p>
+      <p>
+        <strong><%= Province.human_attribute_name("name").titleize%>:</strong>
+        <%= @province.name %>
+      </p>
+      <p>
+        <strong><%= Province.human_attribute_name("national_id").titleize%>:</strong>
+        <%= @province.national_id %>
+      </p>
+      <p>
+        <strong><%= Province.human_attribute_name("country").titleize%>:</strong>
+        <%= @province.country %>
+      </p>
+      <p>
+        <strong><%= Province.human_attribute_name("complete_name").titleize%>:</strong>
+        <%= @province.complete_name %>
+      </p>
+      <p>
+        <strong><%= Province.human_attribute_name("iso_name").titleize%>:</strong>
+        <%= @province.iso_name %>
+      </p>
+      <p>
+        <strong><%= Province.human_attribute_name("lat").titleize%>:</strong>
+        <%= @province.lat %>
+      </p>
+      <p>
+        <strong><%= Province.human_attribute_name("lon").titleize%>:</strong>
+        <%= @province.lon %>
+      </p>
+    <div class="actions">
+      <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+      <%= link_to 'Editar Province', edit_province_path(@province), class: 'btn btn-primary' %>
+      <%= link_to 'Eliminar ' + Province.model_name.human.titleize, @province, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }, class: "btn btn-danger"%>
+    </div>
+  </div>
+</div>

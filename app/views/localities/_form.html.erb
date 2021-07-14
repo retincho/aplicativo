@@ -1,0 +1,41 @@
+<%= form_with(model: locality, local: true) do |form| %>
+  <% if locality.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(locality.errors.count, "error") %> prohibited this locality from being saved:</h2>
+
+      <ul>
+      <% locality.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="mb-3">
+      <strong><%= form.label :name, Locality.human_attribute_name("name").titleize, class:"form-label"%></strong>
+      <%= form.text_field :name, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :national_id, Locality.human_attribute_name("national_id").titleize, class:"form-label"%></strong>
+      <%= form.number_field :national_id, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :department, Locality.human_attribute_name("department").titleize, class:"form-label"%></strong>
+      <%= form.collection_select :department_id, Department.all, :id, :name, {prompt: "Seleccionar"}, {class: "select2 form-control"}  %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :category, Locality.human_attribute_name("category").titleize, class:"form-label"%></strong>
+      <%= form.text_field :category, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :lat, Locality.human_attribute_name("lat").titleize, class:"form-label"%></strong>
+      <%= form.text_field :lat, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :lon, Locality.human_attribute_name("lon").titleize, class:"form-label"%></strong>
+      <%= form.text_field :lon, class:"form-control" %>
+    </div>
+
+  <div class="actions">
+    <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+    <%= form.submit class: "btn btn-success" %>
+<% end %>

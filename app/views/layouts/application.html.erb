@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistema Template</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" media="all">
+    <%= favicon_link_tag asset_path('http://www.chubut.gov.ar/favicon.ico') %>
+  </head>
+
+  <body id="page-top" class="<%= controller_name %> <%= action_name %> bg-light d-flex flex-column h-100">
+    <%= render "layouts/flash"%>
+    <header>
+      <%= render "layouts/navbar"%>
+    </header>
+    <main class="flex-shrink-0">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+    <%= render "layouts/footer"%>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="<%= departments_path%>"> <%= Department.model_name.human(count: 2)%></a>
+    </li>
+    <li class="breadcrumb-item active">Crear <%= Department.model_name.human%></li>
+  </ol>
+</div> 
+<div class="card card-register mx-auto my-2">
+  <div class="card-header">Crear <%= Department.model_name.human%></div>
+  <div class="card-body">
+    <%= render 'form', department: @department %>
+    </div>
+  </div>
+</div>

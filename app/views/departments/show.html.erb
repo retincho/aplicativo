@@ -1,0 +1,49 @@
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="<%= departments_path%>"> <%= Department.model_name.human(count: 2)%></a>
+    </li>
+    <li class="breadcrumb-item active"><%= Department.model_name.human%></li>
+  </ol>
+</div> 
+<div class="card card-register mx-auto my-2">
+  <div class="card-header"><%= @department.to_s %></div>
+  <div class="card-body">
+      <p>
+        <strong><%= Department.human_attribute_name("complete_name").titleize%>:</strong>
+        <%= @department.complete_name %>
+      </p>
+      <p>
+        <strong><%= Department.human_attribute_name("name").titleize%>:</strong>
+        <%= @department.name %>
+      </p>
+      <p>
+        <strong><%= Department.human_attribute_name("national_id").titleize%>:</strong>
+        <%= @department.national_id %>
+      </p>
+      <p>
+        <strong><%= Department.human_attribute_name("province").titleize%>:</strong>
+        <%= @department.province %>
+      </p>
+      <p>
+        <strong><%= Department.human_attribute_name("category").titleize%>:</strong>
+        <%= @department.category %>
+      </p>
+      <p>
+        <strong><%= Department.human_attribute_name("lat").titleize%>:</strong>
+        <%= @department.lat %>
+      </p>
+      <p>
+        <strong><%= Department.human_attribute_name("lon").titleize%>:</strong>
+        <%= @department.lon %>
+      </p>
+    <div class="actions">
+      <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+      <%= link_to 'Editar Department', edit_department_path(@department), class: 'btn btn-primary' %>
+      <%= link_to 'Eliminar ' + Department.model_name.human.titleize, @department, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }, class: "btn btn-danger"%>
+    </div>
+  </div>
+</div>

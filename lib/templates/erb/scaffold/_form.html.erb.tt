@@ -1,0 +1,27 @@
+<%%= form_with(model: <%=singular_table_name%>, local: true) do |form| %>
+  <%% if <%=singular_table_name%>.errors.any? %>
+    <div id="error_explanation">
+      <h2><%%= pluralize(<%=singular_table_name%>.errors.count, "error") %> prohibited this <%=singular_table_name.to_s%> from being saved:</h2>
+
+      <ul>
+      <%% <%=singular_table_name%>.errors.full_messages.each do |message| %>
+        <li><%%= message %></li>
+      <%% end %>
+      </ul>
+    </div>
+  <%% end %>
+  <%- attributes.each do |attribute| -%>
+    <div class="mb-3">
+      <strong><%%= form.label :<%= attribute.name%>, <%=singular_table_name.camelize%>.human_attribute_name("<%= attribute.name %>").titleize, class:"form-label"%></strong>
+      <%- if attribute.reference? -%>
+      <%%= form.collection_select :<%= attribute.column_name %>, <%= attribute.name.camelize %>.all, :id, :name, {prompt: "Seleccionar"}, {class: "select2 form-control"}  %>
+      <%- else -%>
+      <%%= form.<%= attribute.field_type %> :<%= attribute.name %>, class:"form-control" %>
+      <%- end -%>
+    </div>
+  <%- end -%>
+
+  <div class="actions">
+    <%%= link_to 'Volver', :back, class: "btn btn-primary" %>
+    <%%= form.submit class: "btn btn-success" %>
+<%% end %>

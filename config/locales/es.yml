@@ -1,0 +1,365 @@
+es:
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+    week: Semana  
+  activerecord:
+    models:
+   
+      address:
+        one: dirección
+        other: direcciones
+      
+      dependence:
+        one: dependencia
+        other: dependencias
+      
+      country:
+        one: país
+        other: países
+      
+      locality:
+        one: localidad
+        other: localidades
+      
+      department:
+        one: departamento
+        other: departamentos
+
+      nationality:
+        one: nacionalidad
+        other: nacionalidades
+      
+      province:
+        one: provincia
+        other: provincias
+
+      service:
+        one: Servicio
+        other: Servicios
+      
+      service_of_dependence:
+        one: "servicio de la dependencia"
+        other: "servicios de las dependencias"
+      
+      study:
+        one: "estudio"
+        other: "estudios"
+    
+    attributes:    
+    
+      address:
+        street: "calle"
+        number: "número"
+        city: "localidad"
+        other_address_details: "otros detalles"
+      
+      country:
+        code: "código"
+        name: "nombre"
+
+      dependence:
+        code: "código"
+        name: "nombre"
+        complexity: "complejidad"
+        abbreviation: "abreviación"
+      
+      law:
+        code: "código"
+        description: "descripción"
+
+      locality:
+        name: "nombre"
+        department: "departamento"
+        national_id: "id nacional"
+        category: "categoría"
+
+      nationality:
+        code: "código"
+        name: "nombre"
+        country: "país"
+
+      province:
+        name: "nombre"
+        national_id: "id nac."
+        complete_name: "nombre completo"
+        iso_name: "nombre ISO"
+        lat: "latitud"
+        lon: "longitud"
+        country: país
+
+      service:
+        code: "código"
+        name: "nombre"
+        complexity: "complejidad"
+        abbreviation: "abreviación"
+
+      study:
+        level: "nivel"
+        number: "número"
+        description: "descripción"
+
+      service_of_dependence:
+        dependence: "dependencia"
+        service: "servicio"
+        with_guards: "¿tiene guaridas?"
+        headship: "jefatura"
+        assistance: "asistencial"
+        absenteeism: "ausentismo"
+        type_of_passive_guard: "tipo de guardia pasiva"
+        description: "descripción"
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %b"
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: cerca de 1 hora
+        other: cerca de %[count} horas
+      about_x_months:
+        one: cerca de 1 mes
+        other: cerca de %[count} meses
+      about_x_years:
+        one: cerca de 1 año
+        other: cerca de %[count} años
+      almost_x_years:
+        one: casi 1 año
+        other: casi %[count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %[count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %[count} segundos
+      over_x_years:
+        one: más de 1 año
+        other: más de %[count} años
+      x_days:
+        one: 1 día
+        other: "%[count} días"
+      x_minutes:
+        one: 1 minuto
+        other: "%[count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%[count} meses"
+      x_years:
+        one: 1 año
+        other: "%[count} años"
+      x_seconds:
+        one: 1 segundo
+        other: "%[count} segundos"
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minutos
+      month: Mes
+      second: Segundos
+      year: Año
+  errors:
+    format: "%[message}"
+    messages:
+      accepted: "%[attribute} debe ser aceptado"
+      blank: "%[attribute} no puede estar en blanco"
+      present: "%[attribute} debe estar en blanco"
+      confirmation: "%[attribute} no coincide"
+      empty: "%[attribute} no puede estar vacío"
+      equal_to: "%[attribute} debe ser igual a %[count}"
+      even: "%[attribute} debe ser par"
+      exclusion: "%[attribute} está reservado"
+      greater_than: "%[attribute} ebe ser mayor que %[count}"
+      greater_than_or_equal_to: "%[attribute} debe ser mayor que o igual a %[count}"
+      inclusion: "%[attribute} no está incluido en la lista"
+      invalid: "%[attribute} no es válido"
+      less_than: "%[attribute} debe ser menor que %[count}"
+      less_than_or_equal_to: "%[attribute} debe ser menor que o igual a %[count}"
+      model_invalid: "%[attribute} La validación falló: %[errors}"
+      not_a_number: "%[attribute} no es un número"
+      not_an_integer: "%[attribute} debe ser un entero"
+      odd: "%[attribute} debe ser impar"
+      required: "%[attribute} es un campo obligatorio"
+      taken: "%[attribute} ya está en uso"
+      too_long:
+        one: "%[attribute} es demasiado largo (1 carácter máximo)"
+        other: "%[attribute} es demasiado largo (%[count} caracteres máximo)"
+      too_short:
+        one: "%[attribute} es demasiado corto (1 carácter mínimo)"
+        other: "%[attribute} es demasiado corto (%[count} caracteres mínimo)"
+      wrong_length:
+        one: "%[attribute} no tiene la longitud correcta (1 carácter exactos)"
+        other: "%[attribute} no tiene la longitud correcta (%[count} caracteres exactos)"
+        other_than: "%[attribute}  debe ser distinto de %[count}"
+    template:
+      body: 'Se encontraron problemas con los siguientes campos:'
+      header:
+        one: No se pudo guardar este/a %[model} porque se encontró 1 error
+        other: No se pudo guardar este/a %[model} porque se encontraron %[count} errores
+  
+  helpers:
+    select:
+      prompt: Por favor seleccione
+    submit:
+      address:
+        create: Crear Dirección
+        submit: Guardar Dirección
+        update: Actualizar Dirección
+      city:
+        create: Crear Localidad
+        submit: Guardar Localidad
+        update: Actualizar Localidad
+      country:
+        create: Crear País
+        submit: Guardar País
+        update: Actualizar País
+      dependence:
+        create: Crear Dependencia
+        submit: Guardar Dependencia
+        update: Actualizar Dependencia
+      hour_regime:
+        create: Crear Régimen horario
+        submit: Guardar Régimen horario
+        update: Actualizar Régimen horario
+      job_function:
+        create: Crear Función laboral
+        submit: Guardar Función laboral
+        update: Actualizar Función laboral
+      law:
+        create: Crear Ley
+        submit: Guardar Ley
+        update: Actualizar Ley
+      nationality:
+        create: Crear Nacionalidad
+        submit: Guardar Nacionalidad
+        update: Actualizar Nacionalidad
+      office:
+        create: Crear Oficina
+        submit: Guardar Oficina
+        update: Actualizar Oficina
+      position:
+        create: Crear Cargo
+        submit: Guardar Cargo
+        update: Actualizar Cargo
+      profession:
+        create: Crear Profesión
+        submit: Guardar Profesión
+        update: Actualizar Profesión
+      payment:
+        create: Crear pago
+        submit: Guardar pago
+        update: Actualizar pago
+
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u %n"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: mil millones
+          million:
+            one: millón
+            other: millones
+          quadrillion: mil billones
+          thousand: mil
+          trillion:
+            one: billón
+            other: billones
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n %"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " y "
+      two_words_connector: " y "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%A, %d de %B de %Y %H:%M:%S %z"
+      long: "%d de %B de %Y %H:%M"
+      short: "%d de %b %H:%M"
+    pm: pm

@@ -1,0 +1,9 @@
+<div class="m-3">
+  <h1 class="cover-heading text-center ">SISTEMA BASE.</h1>
+  <p>Bienvenido/a <% if user_signed_in? %><a href="#"><%=current_user.email%></a><% end %> al Sistema que sirve como base para el desarrollo de aplicaciones en la Dirección Provincial de Informática del Ministerio de Salud de la Provincia de Chubut, el mismo se diseño bajo el lenguaje de programación Ruby 3.0.1 y el framework para aplicaciones web Ruby on Rails 6.1.3.2 Usa como framework de diseño Bootstrap 5.</p>
+  <% if !user_signed_in? %>
+    <p class="lead text-center ">
+      <a href="users/sign_in" class="btn btn-block btn-lg btn-primary">Ingresar</a>
+    </p>
+  <% end %>
+</div>

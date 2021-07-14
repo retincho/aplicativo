@@ -1,0 +1,55 @@
+<!-- Breadcrumbs-->
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item active"><a href="<%= localities_path%>"> <%= Locality.model_name.human(count: 2)%></a></li>
+  </ol>
+</div>
+<div class="card mx-auto my-2">
+  <div class="card-header">
+    <i class="fa fa-table"></i>
+    <%= Locality.model_name.human(count: 2).titleize%>
+  </div>
+  <div class="card-body">
+    <table class="datatable responsive nowrap table table-hover">
+      <thead>
+        <tr>
+          <th><%= Locality.human_attribute_name("name").titleize%></th>
+          <th><%= Locality.human_attribute_name("national_id").titleize%></th>
+          <th><%= Locality.human_attribute_name("department").titleize%></th>
+          <th><%= Locality.human_attribute_name("category").titleize%></th>
+          <th><%= Locality.human_attribute_name("lat").titleize%></th>
+          <th><%= Locality.human_attribute_name("lon").titleize%></th>
+          <th>Opciones</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+        <% @localities.each do |locality| %>
+          <tr>
+              <td><%=locality.name%></td>
+              <td><%=locality.national_id%></td>
+              <td><%=locality.department%></td>
+              <td><%=locality.category%></td>
+              <td><%=locality.lat%></td>
+              <td><%=locality.lon%></td>
+            <td>
+              <%= link_to((fa_icon "eye"), locality) %>
+              <%= link_to((fa_icon "edit"), edit_locality_path(locality)) %>
+              <%= link_to((fa_icon "trash"), locality, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+<div class="actions">
+  <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+  <%= link_to 'Crear ' + Locality.model_name.human.titleize, new_locality_path, class: 'btn btn-success' %>
+</div>

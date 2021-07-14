@@ -1,0 +1,49 @@
+<%= form_with(model: province, local: true) do |form| %>
+  <% if province.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(province.errors.count, "error") %> prohibited this province from being saved:</h2>
+
+      <ul>
+      <% province.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="mb-3">
+      <strong><%= form.label :iso_id, Province.human_attribute_name("iso_id").titleize, class:"form-label"%></strong>
+      <%= form.text_field :iso_id, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :name, Province.human_attribute_name("name").titleize, class:"form-label"%></strong>
+      <%= form.text_field :name, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :national_id, Province.human_attribute_name("national_id").titleize, class:"form-label"%></strong>
+      <%= form.number_field :national_id, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :country, Province.human_attribute_name("country").titleize, class:"form-label"%></strong>
+      <%= form.collection_select :country_id, Country.all, :id, :name, {prompt: "Seleccionar"}, {class: "select2 form-control"}  %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :complete_name, Province.human_attribute_name("complete_name").titleize, class:"form-label"%></strong>
+      <%= form.text_field :complete_name, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :iso_name, Province.human_attribute_name("iso_name").titleize, class:"form-label"%></strong>
+      <%= form.text_field :iso_name, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :lat, Province.human_attribute_name("lat").titleize, class:"form-label"%></strong>
+      <%= form.text_field :lat, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <strong><%= form.label :lon, Province.human_attribute_name("lon").titleize, class:"form-label"%></strong>
+      <%= form.text_field :lon, class:"form-control" %>
+    </div>
+
+  <div class="actions">
+    <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+    <%= form.submit class: "btn btn-success" %>
+<% end %>

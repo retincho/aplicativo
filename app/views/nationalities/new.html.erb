@@ -1,0 +1,18 @@
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="<%= nationalities_path%>"> <%= Nationality.model_name.human(count: 2)%></a>
+    </li>
+    <li class="breadcrumb-item active">Crear <%= Nationality.model_name.human%></li>
+  </ol>
+</div> 
+<div class="card card-register mx-auto my-2">
+  <div class="card-header">Crear <%= Nationality.model_name.human%></div>
+  <div class="card-body">
+    <%= render 'form', nationality: @nationality %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="<%= localities_path%>"> <%= Locality.model_name.human(count: 2)%></a>
+    </li>
+    <li class="breadcrumb-item active"><%= Locality.model_name.human%></li>
+  </ol>
+</div> 
+<div class="card card-register mx-auto my-2">
+  <div class="card-header"><%= @locality.to_s %></div>
+  <div class="card-body">
+      <p>
+        <strong><%= Locality.human_attribute_name("name").titleize%>:</strong>
+        <%= @locality.name %>
+      </p>
+      <p>
+        <strong><%= Locality.human_attribute_name("national_id").titleize%>:</strong>
+        <%= @locality.national_id %>
+      </p>
+      <p>
+        <strong><%= Locality.human_attribute_name("department").titleize%>:</strong>
+        <%= @locality.department %>
+      </p>
+      <p>
+        <strong><%= Locality.human_attribute_name("category").titleize%>:</strong>
+        <%= @locality.category %>
+      </p>
+      <p>
+        <strong><%= Locality.human_attribute_name("lat").titleize%>:</strong>
+        <%= @locality.lat %>
+      </p>
+      <p>
+        <strong><%= Locality.human_attribute_name("lon").titleize%>:</strong>
+        <%= @locality.lon %>
+      </p>
+    <div class="actions">
+      <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+      <%= link_to 'Editar Locality', edit_locality_path(@locality), class: 'btn btn-primary' %>
+      <%= link_to 'Eliminar ' + Locality.model_name.human.titleize, @locality, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }, class: "btn btn-danger"%>
+    </div>
+  </div>
+</div>

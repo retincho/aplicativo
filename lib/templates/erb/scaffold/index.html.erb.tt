@@ -1,0 +1,49 @@
+<!-- Breadcrumbs-->
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item active"><a href="<%%= <%=plural_table_name%>_path%>"> <%%= <%= singular_table_name.camelize%>.model_name.human(count: 2)%></a></li>
+  </ol>
+</div>
+<div class="card mx-auto my-2">
+  <div class="card-header">
+    <i class="fa fa-table"></i>
+    <%%= <%= singular_table_name.camelize%>.model_name.human(count: 2).titleize%>
+  </div>
+  <div class="card-body">
+    <table class="datatable responsive nowrap table table-hover">
+      <thead>
+        <tr>
+          <%- attributes.each do |attribute| -%>
+          <th><%%= <%= singular_table_name.camelize%>.human_attribute_name("<%= attribute.name %>").titleize%></th>
+          <%- end -%>
+          <th>Opciones</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+        <%% @<%=plural_table_name%>.each do |<%=singular_table_name%>| %>
+          <tr>
+            <%- attributes.each do |attribute| -%>
+              <td><%%=<%=singular_table_name%>.<%= attribute.name %>%></td>
+            <%- end -%>
+            <td>
+              <%%= link_to((fa_icon "eye"), <%=singular_table_name%>) %>
+              <%%= link_to((fa_icon "edit"), edit_<%=singular_table_name%>_path(<%=singular_table_name%>)) %>
+              <%%= link_to((fa_icon "trash"), <%=singular_table_name%>, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }) %>
+            </td>
+          </tr>
+        <%% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+<div class="actions">
+  <%%= link_to 'Volver', :back, class: "btn btn-primary" %>
+  <%%= link_to 'Crear ' + <%=singular_table_name.camelize%>.model_name.human.titleize, new_<%=singular_table_name%>_path, class: 'btn btn-success' %>
+</div>

@@ -1,0 +1,29 @@
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="<%= countries_path%>"> <%= Country.model_name.human(count: 2)%></a>
+    </li>
+    <li class="breadcrumb-item active"><%= Country.model_name.human%></li>
+  </ol>
+</div> 
+<div class="card card-register mx-auto my-2">
+  <div class="card-header"><%= @country.to_s %></div>
+  <div class="card-body">
+      <p>
+        <strong><%= Country.human_attribute_name("code").titleize%>:</strong>
+        <%= @country.code %>
+      </p>
+      <p>
+        <strong><%= Country.human_attribute_name("name").titleize%>:</strong>
+        <%= @country.name %>
+      </p>
+    <div class="actions">
+      <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+      <%= link_to 'Editar Country', edit_country_path(@country), class: 'btn btn-primary' %>
+      <%= link_to 'Eliminar ' + Country.model_name.human.titleize, @country, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }, class: "btn btn-danger"%>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="<%= nationalities_path%>"> <%= Nationality.model_name.human(count: 2)%></a>
+    </li>
+    <li class="breadcrumb-item active"><%= Nationality.model_name.human%></li>
+  </ol>
+</div> 
+<div class="card card-register mx-auto my-2">
+  <div class="card-header"><%= @nationality.to_s %></div>
+  <div class="card-body">
+      <p>
+        <strong><%= Nationality.human_attribute_name("code").titleize%>:</strong>
+        <%= @nationality.code %>
+      </p>
+      <p>
+        <strong><%= Nationality.human_attribute_name("name").titleize%>:</strong>
+        <%= @nationality.name %>
+      </p>
+      <p>
+        <strong><%= Nationality.human_attribute_name("country").titleize%>:</strong>
+        <%= @nationality.country %>
+      </p>
+    <div class="actions">
+      <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+      <%= link_to 'Editar Nationality', edit_nationality_path(@nationality), class: 'btn btn-primary' %>
+      <%= link_to 'Eliminar ' + Nationality.model_name.human.titleize, @nationality, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }, class: "btn btn-danger"%>
+    </div>
+  </div>
+</div>

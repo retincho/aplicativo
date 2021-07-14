@@ -1,0 +1,47 @@
+<!-- Breadcrumbs-->
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item active"><a href="<%= countries_path%>"> <%= Country.model_name.human(count: 2)%></a></li>
+  </ol>
+</div>
+<div class="card mx-auto my-2">
+  <div class="card-header">
+    <i class="fa fa-table"></i>
+    <%= Country.model_name.human(count: 2).titleize%>
+  </div>
+  <div class="card-body">
+    <table class="datatable responsive nowrap table table-hover">
+      <thead>
+        <tr>
+          <th><%= Country.human_attribute_name("code").titleize%></th>
+          <th><%= Country.human_attribute_name("name").titleize%></th>
+          <th>Opciones</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+        <% @countries.each do |country| %>
+          <tr>
+              <td><%=country.code%></td>
+              <td><%=country.name%></td>
+            <td>
+              <%= link_to((fa_icon "eye"), country) %>
+              <%= link_to((fa_icon "edit"), edit_country_path(country)) %>
+              <%= link_to((fa_icon "trash"), country, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+<div class="actions">
+  <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+  <%= link_to 'Crear ' + Country.model_name.human.titleize, new_country_path, class: 'btn btn-success' %>
+</div>

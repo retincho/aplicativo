@@ -1,0 +1,49 @@
+<!-- Breadcrumbs-->
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item active"><a href="<%= nationalities_path%>"> <%= Nationality.model_name.human(count: 2)%></a></li>
+  </ol>
+</div>
+<div class="card mx-auto my-2">
+  <div class="card-header">
+    <i class="fa fa-table"></i>
+    <%= Nationality.model_name.human(count: 2).titleize%>
+  </div>
+  <div class="card-body">
+    <table class="datatable responsive nowrap table table-hover">
+      <thead>
+        <tr>
+          <th><%= Nationality.human_attribute_name("code").titleize%></th>
+          <th><%= Nationality.human_attribute_name("name").titleize%></th>
+          <th><%= Nationality.human_attribute_name("country").titleize%></th>
+          <th>Opciones</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+        <% @nationalities.each do |nationality| %>
+          <tr>
+              <td><%=nationality.code%></td>
+              <td><%=nationality.name%></td>
+              <td><%=nationality.country%></td>
+            <td>
+              <%= link_to((fa_icon "eye"), nationality) %>
+              <%= link_to((fa_icon "edit"), edit_nationality_path(nationality)) %>
+              <%= link_to((fa_icon "trash"), nationality, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+<div class="actions">
+  <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+  <%= link_to 'Crear ' + Nationality.model_name.human.titleize, new_nationality_path, class: 'btn btn-success' %>
+</div>
